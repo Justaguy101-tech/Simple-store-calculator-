@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Counter</title>
+</head>
+<body>
+    <h1>Welcome to Nico's Store</h1>
+    <h3>What do you want?</h3>
+    <ul>
+        <li>Notebook(P50)</li>
+        <li>Ballpen(P10)</li>
+        <li>Intermediate Pad(P25)</li>
+        <li>Eraser(P10)</li>
+    </ul>
+    <p>Number of notebook(s)
+        <input type="number" id="numofnb">
+    </p>
+    <p>Number of ballpen(s)
+        <input type="number" id="numofbp">
+    </p>
+    <p>Number of intermediate pad(s)
+        <input type="number" id="numofip">
+    </p>
+    <p>Number or eraser(s)
+        <input type="number" id="numofe">
+    </p>
+    <button onclick="totalCost()">Total Cost</button>
+    <h2 id="final"></h2>
+    <h3>Here's your entire cost:</h3>
+    <h5 id="nbfull"></h5>                                                            
+    <h5 id="bpfull"></h5>
+    <h5 id="ipfull"></h5>
+    <h5 id="efull"></h5>
+    <h3 id="disc"></h3>
+
+    <script>
+
+        function totalCost() {
+
+            let nm = Number (document.getElementById("numofnb").value);
+            let bp = Number (document.getElementById("numofbp").value);
+            let ip = Number (document.getElementById("numofip").value);
+            let e = Number (document.getElementById("numofe").value);
+
+            let notebookCost = nm * 50;
+            let ballpenCost = bp * 10;
+            let intermediatepadCost = ip * 25;
+            let eraserCost = e * 10;
+
+            let sum = notebookCost + ballpenCost + intermediatepadCost + eraserCost
+            let end = "Your total cost is " + sum;
+
+            document.getElementById("final").innerHTML = end;
+            document.getElementById("nbfull").innerHTML = "Notebook: " + notebookCost;
+            document.getElementById("bpfull").innerHTML = "Ballpen: " + ballpenCost;
+            document.getElementById("ipfull").innerHTML = "Intermediate Pad: " + intermediatepadCost;
+            document.getElementById("efull").innerHTML = "Eraser: " + eraserCost;
+
+            if (sum > 200) {
+                    discount = sum * 0.20;
+                    newTotal = sum - discount
+                } else {
+                    newTotal = "No Discount"
+                }
+                document.getElementById("disc").innerHTML = "Your discounted bill is: " + newTotal
+                }        
+        
+        
+    </script>
+</body>
+</html>
